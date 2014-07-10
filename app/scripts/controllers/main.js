@@ -8,10 +8,12 @@
  * Controller of the hl4App
  */
 angular.module('hl4App')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  .controller('MainCtrl', function ($scope,postData) {
+
+        $scope.posts = [];
+
+        postData.teacherListJSON().then(function (result) {
+            $scope.posts = result.data.posts;
+            console.log($scope.posts);
+        })
   });
