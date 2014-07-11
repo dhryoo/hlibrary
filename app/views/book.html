@@ -1,70 +1,16 @@
 <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-4" ng-repeat="book in posts">
 
         <div class="panel panel-default">
-            <div class="panel-thumbnail"><img src="http://www.hlibrary.kr/images/bg_4.jpg" class="img-responsive"></div>
+            <div class="panel-thumbnail"><img ng-src="{{book.attachments[0].images.full.url}}" class="img-responsive"></div>
             <div class="panel-body">
-                <p class="lead">Social Good</p>
-                <p>1,200 Followers, 83 Posts</p>
-
-                <p>
-                    <img src="https://lh6.googleusercontent.com/-5cTTMHjjnzs/AAAAAAAAAAI/AAAAAAAAAFk/vgza68M4p2s/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                    <img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                    <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                </p>
-            </div>
-        </div>
-
-
-    </div><!--/col-->
-
-    <div class="col-sm-4">
-
-        <div class="panel panel-default">
-            <div class="panel-thumbnail"><img src="http://www.hlibrary.kr/images/bg_5.jpg" class="img-responsive"></div>
-            <div class="panel-body">
-                <p class="lead">Urbanization</p>
-                <p>45 Followers, 13 Posts</p>
-
-                <p>
-                    <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
-                </p>
-            </div>
-        </div>
-
-
-    </div><!--/col-->
-
-    <div class="col-sm-4">
-
-        <div class="panel panel-default">
-            <div class="panel-thumbnail"><img src="http://www.hlibrary.kr/images/bg_6.jpg" class="img-responsive"></div>
-            <div class="panel-body">
-                <p class="lead">Full Glimpse</p>
-                <p>15.4k Followers, 477 Posts</p>
-
-                <p>
-                    <img src="https://lh6.googleusercontent.com/-5cTTMHjjnzs/AAAAAAAAAAI/AAAAAAAAAFk/vgza68M4p2s/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                    <img src="https://lh4.googleusercontent.com/-misNMXMfeLQ/AAAAAAAAAAI/AAAAAAAAAFw/IgHzdZ5Q4Rk/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                </p>
-            </div>
-        </div>
-
-
-    </div><!--/col-->
-
-
-    <div class="col-sm-4">
-
-        <div class="panel panel-default">
-            <div class="panel-thumbnail"><img src="//placehold.it/450X300/EDEDED" class="img-responsive"></div>
-            <div class="panel-body">
-                <p class="lead">Hacker News</p>
+                <p class="lead"> {{book.title}}</p>
                 <p>120k Followers, 900 Posts</p>
 
                 <p>
                     <img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
                     <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
+                    <button type="button" class="btn btn-primary"  ng-click="open_book('{{book.custom_fields.book_url[0]}}')"> 책 보기</button>
                 </p>
             </div>
         </div>
@@ -72,48 +18,13 @@
 
     </div><!--/col-->
 
-    <div class="col-sm-4">
-
-        <div class="panel panel-default">
-            <div class="panel-thumbnail"><img src="//placehold.it/450X300/DD66DD/FFF" class="img-responsive"></div>
-            <div class="panel-body">
-                <p class="lead">Bootstrap Templates</p>
-                <p>902 Followers, 88 Posts</p>
-
-                <p>
-                    <img src="https://lh3.googleusercontent.com/uFp_tsTJboUY7kue5XAsGA=s28" width="28px" height="28px">
-                    <img src="https://lh5.googleusercontent.com/-AQznZjgfM3E/AAAAAAAAAAI/AAAAAAAAABA/WEPOnkQS_20/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                </p>
-            </div>
-        </div>
-
-
-    </div><!--/col-->
-
-    <div class="col-sm-4">
-
-        <div class="panel panel-default">
-            <div class="panel-thumbnail"><img src="//placehold.it/450X300/2222CC/EEE" class="img-responsive"></div>
-            <div class="panel-body">
-                <p class="lead">Social Media</p>
-                <p>19k Followers, 789 Posts</p>
-
-                <p>
-                    <img src="https://lh4.googleusercontent.com/-eSs1F2O7N1A/AAAAAAAAAAI/AAAAAAAAAAA/caHwQFv2RqI/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                    <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                </p>
-            </div>
-        </div>
-
-
-    </div><!--/col-->
 
     <br>
 
     <div class="clearfix"></div>
 
     <hr>
-    <div class="col-md-12 text-center"><p><a href="http://www.bootply.com/download/90113" target="_ext">Download Google Plus Style Template</a><br><a href="http://bootply.com/templates" target="_ext">More Bootstrap Templates by @Bootply</a></p></div>
+    <div class="col-md-12 text-center"><p><a href="http://www.ibookie.org/" target="_ext">지금 바로 아이부키에서 자신만의 책을 만들어 보세요.</a><br><a href="http://www.ibookie.org" target="_ext">http://www.ibookie.org</a></p></div>
     <hr>
 
 </div><!--/main row-->

@@ -12,6 +12,8 @@ angular.module('hl4App')
 
         $scope.posts = [];
 
+
+
         postData.teacherListJSON().then(function (result) {
             $scope.posts = result.data.posts;
             console.log($scope.posts);
