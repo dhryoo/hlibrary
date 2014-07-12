@@ -43,6 +43,20 @@ angular.module('hl4App')
 
     };
 
+        /*
+     var getAuthNonce = function () {
+        var newURL = 'http://www.hlibrary.kr/press/api/get_nonce/?controller=auth&method=generate_auth_cookie&callback=JSON_CALLBACK';
+        var deferred = $q.defer();
+        deferred.resolve(
+            $http.jsonp(newURL).success(function (result) {
+                return result;
+            }));
+        return deferred.promise;
+
+    };
+    */
+
+
 
 
     return {

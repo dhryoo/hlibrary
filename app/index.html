@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="hl4App">
+  <body ng-app="hl4App" ng-controller="ApplicationCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -30,7 +30,10 @@
 
 
     <!--login modal-->
+    <form name="loginForm" ng-controller="LoginCtrl" ng-submit="login(credentials)" novalidate>
+
     <div id="loginModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -40,15 +43,17 @@
                 <div class="modal-body">
                     <form class="form col-md-12 center-block">
                         <div class="form-group">
-                            <input type="text" class="form-control input-lg" placeholder="Email">
+                            <input type="text" id="username" class="form-control input-lg" placeholder="Username" ng-model="credentials.username">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control input-lg" placeholder="Password">
+                            <input type="password" id="password" class="form-control input-lg" placeholder="Password" ng-model="credentials.password">
                         </div>
                         <div class="form-group">
-                            <button class="btn btn-primary btn-lg btn-block">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Sign In</button>
                             <span class="pull-right"><a href="#">Register</a></span><span><a href="#">Need help?</a></span>
                         </div>
+
+                        <div>{{message}}</div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -58,7 +63,9 @@
                 </div>
             </div>
         </div>
+
     </div>
+    </form>
 
 
     <!--about modal-->
@@ -115,6 +122,10 @@
         <script src="scripts/services/postdata.js"></script>
         <script src="scripts/controllers/book.js"></script>
         <script src="scripts/controllers/menu.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/services/authservice.js"></script>
+        <script src="scripts/services/session.js"></script>
+        <script src="scripts/controllers/application.js"></script>
         <!-- endbuild -->
 </body>
 </html>
