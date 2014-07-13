@@ -15,6 +15,8 @@ angular.module('hl4App')
 
 
         $scope.setCurrentUser = function (user) {
+            console.log('in setCurrentUser');
+            console.log(user);
             $scope.currentUser = user;
         }
 

@@ -23,6 +23,11 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+
       .when('/book', {
         templateUrl: 'views/book.html',
         controller: 'BookCtrl'
@@ -46,7 +51,9 @@ angular
        guest: 'guest'
    })
     .run(function ($rootScope, AUTH_EVENTS, AuthService) {
+        console.log('in run');
         $rootScope.$on('$stateChangeStart', function (event, next) {
+            console.log('state chage start');
             var authorizedRoles = next.data.authorizedRoles;
             if (!AuthService.isAuthorized(authorizedRoles)) {
                 event.preventDefault();
@@ -59,6 +66,15 @@ angular
                 }
             }
         });
+        $rootScope.$on(AUTH_EVENTS.loginSuccess, function (event,menu) {
+            console.log('in event success');
+            $rootScope.$broadcast(AUTH_EVENTS.Authorization);
+        });
+
+        $rootScope.$on(AUTH_EVENTS.loginFailed, function (event,menu) {
+            console.log('in event fail');
+            $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
+        });
     })
     .config(function ($httpProvider) {
         $httpProvider.interceptors.push([
@@ -68,8 +84,7 @@ angular
             }
         ]);
     })
-    .factory('AuthInterceptor', function ($rootScope, $q,
-                                          AUTH_EVENTS) {
+    .factory('AuthInterceptor', function ($rootScope, $q,AUTH_EVENTS) {
         return {
             responseError: function (response) {
                 $rootScope.$broadcast({

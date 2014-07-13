@@ -40,28 +40,30 @@ angular.module('hl4App')
                         }
                         else
                         {
-                            console.log(result.data);
-
                             Session.create(result.data.id,result.data.username,result.data.cookie,'editor');
-
-
-                            return result.data;
-                            /*
-                            $scope.message = 'ok';
-                            Session.create(result.data.id,res.user_id,res.user.role);
-                            return res.user;
-                            */
-
                         }
+
+                        return result.data;
                     })
             };
 
 
-            var broadCastLogin = function () {
-
+            var broadCastLogin = function (user) {
+                console.log('in broadCastLogin');
+                if(user.status =='error')
+                {
+                    console.log(' in error');
+                    $rootScope.$broadcast(AUTH_EVENTS.loginFailed);
+                }
+                else
+                {
+                    console.log(' in success');
+                    $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
+                    $scope.setCurrentUser(user);
+                }
             }
 
-            getNonce().then(loginProcess);
+            getNonce().then(loginProcess).then(broadCastLogin);
 
            // AuthService.login(credentials);
 

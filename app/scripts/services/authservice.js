@@ -48,9 +48,16 @@ angular.module('hl4App')
     }
     authService.isAuthenticated = function () {
 
-        return !!Session.userId;
+
+        console.log('in is Authenitcated');
+        console.log(Session);
+
+        return !!Session.username;
     };
     authService.isAuthorized = function (authorizedRoles) {
+
+        console.log('in is isAuthorized');
+        console.log(authorizedRoles);
         if(!angular.isArray(authorizedRoles)) {
             authorizedRoles = [authorizedRoles];
         }
