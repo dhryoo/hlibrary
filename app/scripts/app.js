@@ -15,7 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -27,7 +27,6 @@ angular
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl'
       })
-
       .when('/book', {
         templateUrl: 'views/book.html',
         controller: 'BookCtrl'
@@ -51,7 +50,6 @@ angular
        guest: 'guest'
    })
     .run(function ($rootScope, AUTH_EVENTS, AuthService) {
-        console.log('in run');
         $rootScope.$on('$stateChangeStart', function (event, next) {
             console.log('state chage start');
             var authorizedRoles = next.data.authorizedRoles;

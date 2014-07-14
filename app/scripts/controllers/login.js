@@ -8,7 +8,7 @@
  * Controller of the hl4App
  */
 angular.module('hl4App')
-  .controller('LoginCtrl', function ($scope,$rootScope,AUTH_EVENTS,AuthService,Session) {
+  .controller('LoginCtrl', ['$scope','$rootScope','AUTH_EVENTS','Session',function ($scope,$rootScope,AUTH_EVENTS,AuthService,Session) {
         $scope.credentials = {
             username:'',
             password:''
@@ -60,6 +60,7 @@ angular.module('hl4App')
                     console.log(' in success');
                     $rootScope.$broadcast(AUTH_EVENTS.loginSuccess);
                     $scope.setCurrentUser(user);
+
                 }
             }
 
@@ -86,4 +87,19 @@ angular.module('hl4App')
             */
 
         };
-  });
+
+        $scope.selected = {
+   //         item: $scope.items[0]
+        };
+
+        $scope.ok = function () {
+            $modalInstance.close($scope.selected.item);
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.dismiss('cancel');
+        };
+
+
+
+  }]);

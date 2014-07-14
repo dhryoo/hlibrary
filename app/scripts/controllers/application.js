@@ -8,7 +8,7 @@
  * Controller of the hl4App
  */
 angular.module('hl4App')
-  .controller('ApplicationCtrl', function ($scope,USER_ROLES,AuthService) {
+  .controller('ApplicationCtrl', ['$scope','USER_ROLES','AuthService',function ($scope,USER_ROLES,AuthService) {
         $scope.currentUser = null;
         $scope.userRoles = USER_ROLES;
         $scope.isAuthorized = AuthService.isAuthorized;
@@ -20,4 +20,4 @@ angular.module('hl4App')
             $scope.currentUser = user;
         }
 
-  });
+  }]);

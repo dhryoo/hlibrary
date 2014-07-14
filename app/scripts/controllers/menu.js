@@ -8,7 +8,7 @@
  * Controller of the hl4App
  */
 angular.module('hl4App')
-  .controller('MenuCtrl', function ($scope) {
+  .controller('MenuCtrl',['$scope', function ($scope) {
     $scope.menuIndex = 1;
     $scope.setMenuIndex = function (selectedIndex) {
         console.log("called");
@@ -17,6 +17,8 @@ angular.module('hl4App')
     $scope.isSelected = function (index) {
 
         return $scope.menuIndex == index;
-    }
+    };
 
-  });
+
+
+}]);

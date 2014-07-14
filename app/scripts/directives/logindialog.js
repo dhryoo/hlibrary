@@ -7,7 +7,7 @@
  * # loginDialog
  */
 angular.module('hl4App')
-  .directive('loginDialog', function (AUTH_EVENTS) {
+  .directive('loginDialog',['AUTH_EVENTS', function (AUTH_EVENTS) {
     return {
         restrict: 'A',
         template: '<div ng-if="visible" ng-include="../view/login.html">',
@@ -21,4 +21,4 @@ angular.module('hl4App')
             scope.$on(AUTH_EVENTS.sessionTimeout, showDialog)
         }
     };
-});
+}]);

@@ -8,7 +8,7 @@
  * Factory in the hl4App.
  */
 angular.module('hl4App')
-  .factory('AuthService', function ($http,Session) {
+  .factory('AuthService',['$http','Session', function ($http,Session) {
     // Service logic/FIL
     // ...
     //get nonce
@@ -73,4 +73,4 @@ angular.module('hl4App')
 
 
 
-  });
+  }]);
