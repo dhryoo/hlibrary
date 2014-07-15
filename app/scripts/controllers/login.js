@@ -8,7 +8,7 @@
  * Controller of the hl4App
  */
 angular.module('hl4App')
-  .controller('LoginCtrl', ['$scope','$rootScope','AUTH_EVENTS','Session',function ($scope,$rootScope,AUTH_EVENTS,AuthService,Session) {
+  .controller('LoginCtrl', ['$scope','$rootScope','AUTH_EVENTS','AuthService','Session',function ($scope,$rootScope,AUTH_EVENTS,AuthService,Session) {
         $scope.credentials = {
             username:'',
             password:''
