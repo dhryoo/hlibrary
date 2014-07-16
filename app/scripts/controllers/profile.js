@@ -7,11 +7,13 @@
  * # ProfileCtrl
  * Controller of the hl4App
  */
+
+
 angular.module('hl4App')
   .controller('ProfileCtrl',['$rootScope','$scope','$modal','$log', function ($rootScope,$scope,$modal,$log) {
         $scope.items = ['item1', 'item2', 'item3'];
 
-        $scope.open = function (size) {
+        $scope.openDetail = function (size) {
             var modalInstance = $modal.open({
                 templateUrl: '../views/profile.html',
                 controller: ModalInstanceCtrl,
@@ -38,9 +40,11 @@ angular.module('hl4App')
         */
 
         $rootScope.$on('openDetail', function(event, args) {
-          //  $scope.open();
+            $scope.openDetail();
         });
   }]);
+
+
 
 
 var ModalInstanceCtrl = function ($scope, $modalInstance, items) {
