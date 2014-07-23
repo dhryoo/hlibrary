@@ -1,12 +1,11 @@
     <!--login modal-->
     <form name="loginForm" ng-submit="login(credentials)" novalidate>
 
-    <div id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div id="loginModal" tabindex="-1" aria-hidden="true">
 
-        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <button type="button" class="close" ng-click="close();">×</button>
                     <h2 class="text-center"><img src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"><br>Login</h2>
                 </div>
                 <div class="modal-body">
@@ -27,11 +26,10 @@
                 </div>
                 <div class="modal-footer">
                     <div class="col-md-12">
-                        <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+                        <button class="btn" ng-click="close()">Cancel</button>
                     </div>
                 </div>
             </div>
-        </div>
 
     </div>
     </form>

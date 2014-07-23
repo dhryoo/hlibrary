@@ -1,0 +1,127 @@
+<!-- Bootstrap Core CSS -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ko_KR/sdk.js#xfbml=1&appId=512046832258790&version=v2.0";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<!-- Fonts -->
+<header>
+    <div class="container2">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" data-ng-src="{{teacher.attachments[0].images.full.url}}" alt="">
+                <div class="intro-text">
+                    <span class="name">{{teacher.custom_fields.teacher_name[0]}}</span>
+                    <hr class="star-light">
+                    <p style="white-space: pre;">{{teacher.custom_fields.teacher_profile[0]}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Portfolio</h2>
+                <hr/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 portfolio-item" data-ng-repeat="book in books" >
+                <div class="portfolio-link"  data-ng-click="open_book('{{book.custom_fields.book_url[0]}}')" >
+                    <div class="caption">
+                        <div class="caption-content">
+                            <i class="fa fa-search-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img data-ng-src="{{book.attachments[book.attachments.length-1].images.full.url}}" class="img-responsive" alt="" />
+                    <p>{{book.title}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<a href="http://me2.do/IIr1pKeW" target="_blank"><h2>상담신청하기</h2></a>
+
+<section class="success" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>About</h2>
+                <hr class="star-light">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-2">
+
+                <p style="white-space: pre;">{{teacher.custom_fields.teacher_introduce[0]}}</p>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div class="container" data-ng-if="schedules.length !=0">
+    <h1>일정</h1>
+</div>
+
+<div class="container" data-ng-if="schedules.length !=0">
+    <div class="row">
+
+        <div class="timeline-centered">
+
+            <article class="timeline-entry" data-ng-repeat="schedule in schedules">
+
+                <div class="timeline-entry-inner">
+
+                    <div class="timeline-icon bg-warning">
+                        <i class="entypo-camera"></i>
+                    </div>
+
+                    <div class="timeline-label">
+                        <h2>{{schedule.title}}</h2>
+
+                        <blockquote>{{schedule.custom_fields.start_date[0]}} ~ {{schedule.custom_fields.end_date[0]}}</blockquote>
+                        <div data-ng-bind-html="schedule.content"></div>
+
+
+                    </div>
+                </div>
+
+            </article>
+            <article class="timeline-entry begin">
+
+                <div class="timeline-entry-inner">
+
+                    <div class="timeline-icon" style="-webkit-transform: rotate(-90deg); -moz-transform: rotate(-90deg);">
+                        <i class="entypo-flight"></i>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+<div class="fb-comments" data-href="http://www.hlibrary.kr/#/profile/{{author_name}}/{{post_id}}" data-numposts="5" data-colorscheme="light" style="width:100%"></div>
+
+<div class="scroll-top page-scroll visible-xs visble-sm">
+    <a class="btn btn-primary" href="#page-top">
+        <i class="fa fa-chevron-up"></i>
+    </a>
+</div>
+

@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" xmlns:ng="http://angularjs.org">
   <head>
     <meta charset="utf-8">
     <title></title>
@@ -9,13 +9,28 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/dialogs.css">
     <!-- endbuild -->
+
+      <!--[if lte IE 8]>
+      <script>
+          document.createElement('ng-include');
+          document.createElement('ng-pluralize');
+          document.createElement('ng-view');
+
+          // Optionally these for CSS
+          document.createElement('ng:include');
+          document.createElement('ng:pluralize');
+          document.createElement('ng:view');
+      </script>
+      <![endif]-->
   </head>
-  <body ng-app="hl4App" ng-controller="ApplicationCtrl">
+  <body ng-app="hl4App" ng-controller="ApplicationCtrl" id="ng-app">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -114,6 +129,9 @@
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-dialog-service/dialogs.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -132,6 +150,7 @@
         <script src="scripts/directives/logindialog.js"></script>
         <script src="scripts/controllers/profile.js"></script>
         <script src="scripts/services/modal-service.js"></script>
+        <script src="scripts/services/profile-service.js"></script>
         <!-- endbuild -->
 </body>
 </html>

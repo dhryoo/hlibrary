@@ -1,5 +1,5 @@
 <div class="row">
-    <div class="col-sm-4" ng-repeat="teacher in posts">
+    <div class="col-sm-4" data-ng-repeat="teacher in posts">
 
         <div class="panel panel-default">
             <div class="panel-thumbnail"><img ng-src="{{teacher.attachments[0].images.full.url}}" class="img-responsive"></div>
@@ -12,7 +12,7 @@
                     <img src="https://lh6.googleusercontent.com/-5cTTMHjjnzs/AAAAAAAAAAI/AAAAAAAAAFk/vgza68M4p2s/s28-c-k-no/photo.jpg" width="28px" height="28px">
                     <img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
                     <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                    <a class="btn btn-info" ng-click="showDetail({{teacher.id}})"><b>상세 보기</b></a>
+                    <a class="btn btn-info" href="#/profile/{{teacher.custom_fields.teacher_id[0]}}/{{teacher.id}}"><b>상세 보기</b></a>
                 </p>
 
             </div>
@@ -32,3 +32,14 @@
     <hr>
 
 </div><!--/main row-->
+
+
+<div class="col-md-12">
+    <button class="btn btn-danger" ng-click="launch('error')">Error Dialog</button>
+    <button class="btn btn-default" ng-click="launch('login')">Error Dialog</button>
+    <button class="btn btn-primary" ng-click="launch('wait')">Wait Dialog</button>
+    <button class="btn btn-default" ng-click="launch('notify')">Notify Dialog</button>
+    <button class="btn btn-success" ng-click="launch('confirm')">Confirm Dialog</button>
+    <button class="btn btn-warning" ng-click="launch('custom')">Custom Dialog</button>
+    <button class="btn btn-warning" ng-click="launch('custom2')">Custom Dialog 2</button>
+</div>

@@ -18,6 +18,7 @@ angular.module('hl4App')
             console.log('in setCurrentUser');
             console.log(user);
             $scope.currentUser = user;
+            console.log('user');
         }
 
   }]);

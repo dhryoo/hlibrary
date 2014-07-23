@@ -1,20 +1,109 @@
-        <div class="modal-header">
-            <h3 class="modal-title">I'm a modal!</h3>
-        </div>
-        <div class="modal-body">
-            <ul>
-                <li ng-repeat="item in items">
-                    <a ng-click="selected.item = item">{{ item }}</a>
-                </li>
-            </ul>
-            Selected: <b>{{ selected.item }}</b>
-        </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+<div class="container" ng-controller="ProfileCtrl">
+    <div class="row">
+        <div>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 text-center">
+                            <!--img src="http://api.randomuser.me/portraits/men/49.jpg" alt="" class="center-block img-circle img-responsive"-->
+                            <img ng-src="{{teacher.attachments[teacher.attachments.length-1].images.full.url}}" alt="" class="center-block img-circle img-responsive">
+                            <ul class="list-inline ratings text-center" title="Ratings">
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                                <li><a href="#"><span class="fa fa-star fa-lg"></span></a></li>
+                            </ul>
+                        </div><!--/col-->
+                        <div class="col-xs-12 col-sm-8">
+                            <h2>{{teacher.custom_fields.teacher_name[0]}}</h2>
+                            <p><strong>소개: </strong> {{teacher.custom_fields.teacher_profile[0]}}</p>
+                            <p><strong>주요 항목: </strong> {{teacher.custom_fields.teacher_profile[0]}}</p>
+                            <p><strong>활동 가능 지역: </strong>
+                                <span class="label label-info tags">{{teacher_region[0]}}</span>
+                                <span class="label label-info tags">{{teacher_region[1]}}</span>
+                                <span class="label label-info tags">{{teacher_region[2]}}</span>
+                                <span class="label label-info tags">{{teacher_region[3]}}</span>
+                                <span class="label label-info tags">{{teacher_region[4]}}</span>
+                                <span class="label label-info tags">{{teacher_region[5]}}</span>
+                           </p>
+
+                            <p><strong>활동 가능 요일: </strong>
+                                <span class="label label-info tags">{{can_day[0]}}</span>
+                                <span class="label label-info tags">{{can_day[1]}}</span>
+                                <span class="label label-info tags">{{can_day[2]}}</span>
+                                <span class="label label-info tags">{{can_day[3]}}</span>
+                                <span class="label label-info tags">{{can_day[4]}}</span>
+                                <span class="label label-info tags">{{can_day[5]}}</span>
+                           </p>
+                        </div><!--/col-->
+                        <div class="clearfix"></div>
+                        <div class="col-xs-12 col-sm-4">
+                            <!--h2><strong> 20,7K </strong></h2>
+                            <p><small>Followers</small></p-->
+                            <a href="http://me2.do/IIr1pKeW" target="_blank"><button class="btn btn-success btn-block" ><span class="fa fa-plus-circle"></span> 상담신청 </button></a>
+                        </div><!--/col-->
+                        <div class="col-xs-12 col-sm-4">
+                            <!--h2><strong>245</strong></h2>
+                            <p><small>Following</small></p-->
+                            <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+                        </div><!--/col-->
+                        <div class="col-xs-12 col-sm-4">
+                            <!--h2><strong>43</strong></h2>
+                            <p><small>Snippets</small></p-->
+                            <button type="button" class="btn btn-primary btn-block" ng-click="getTest();"><span class="fa fa-gear"></span> Options </button>
+                        </div><!--/col-->
+                    </div><!--/row-->
+
+                </div><!--/panel-body-->
+
+
+            </div><!--/panel-->
+                            <div style="margin-top:10px;margin-bottom:10px" ng-if="books.length >0">
+                <button class="btn btn-info btn-block" onclick="history.go(-1);"><span class="fa fa-arrow-left"></span> 목록으로</button>
+                </div>
+
+        </div><!--/col-->
+    </div><!--/row-->
+</div><!--/container-->
+
+
+
+
+<div class="row">
+    <div class="col-sm-4" ng-repeat="book in books">
+
+        <div class="panel panel-default">
+            <div class="panel-thumbnail"><img ng-src="{{book.attachments[0].images.full.url}}" class="img-responsive"></div>
+            <div class="panel-body">
+                <p class="lead"> {{book.title}}</p>
+                <p>120k Followers, 900 Posts</p>
+
+                <p style="cursor:pointer">
+                    <!--img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
+                    <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px"-->
+                    <i class="fa fa-desktop fa-3x" ng-click="open_book('{{book.custom_fields.book_url[0]}}')"></i>데스크탑 보기
+                    <i class="fa fa-mobile-phone fa-4x" ng-click="open_book('{{book.custom_fields.book_url[0]}}')" ></i>모바일 보기
+                </p>
+            </div>
         </div>
 
-    <button class="btn btn-default" ng-click="open()">Open me!</button>
-    <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
-    <button class="btn btn-default" ng-click="open('sm')">Small modal</button>
-    <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+
+    </div><!--/col-->
+
+
+    <br>
+
+    <div class="clearfix"></div>
+
+    <hr>
+    <div class="col-md-12 text-center"><p><a href="http://www.ibookie.org/" target="_ext">지금 바로 아이부키에서 자신만의 책을 만들어 보세요.</a><br><a href="http://www.ibookie.org" target="_ext">http://www.ibookie.org</a></p></div>
+    <hr>
+
+</div><!--/main row-->
+
+<div style="margin-top:10px;margin-bottom:10px">
+    <button class="btn btn-info btn-block" onclick="history.go(-1);"><span class="fa fa-arrow-left"></span> 목록으로</button>
+</div>
+
+
