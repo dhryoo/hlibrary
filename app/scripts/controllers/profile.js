@@ -29,6 +29,10 @@ angular.module('hl4App')
         };
         $scope.go_counsil = function () {
         };
+        $scope.close = function () {
+           // $modalInstance.close();
+
+        }
 
 
         var init = function () {

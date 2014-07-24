@@ -11,11 +11,41 @@ angular.module('hl4App')
   .controller('MainCtrl',['$rootScope','$scope','postData','ModalService','ProfileService','$translate','dialogs',
         function ($rootScope,$scope,postData,ModalService,ProfileService,$translate,dialogs) {
 
+
         $scope.posts = [];
+        $scope.teacher_info = {};
+
         postData.teacherListJSON().then(function (result) {
+
             $scope.posts = result.data.posts;
-            console.log($scope.posts);
+
+            shuffleArray($scope.posts);
         });
+
+
+        $scope.showProfile = function (teacher_id,teacher_post_id) {
+            $scope.teacher_info.teacher_id = teacher_id;
+            $scope.teacher_info.teacher_post_id = teacher_post_id;
+            $scope.launch('profile');
+        }
+
+
+        var shuffleArray = function(array) {
+            var m = array.length, t, i;
+
+            // While there remain elements to shuffle
+            while (m) {
+                // Pick a remaining element…
+                i = Math.floor(Math.random() * m--);
+
+                // And swap it with the current element.
+                t = array[m];
+                array[m] = array[i];
+                array[i] = t;
+            }
+
+            return array;
+        }
 
 
         var _progress = 33;
@@ -72,6 +102,17 @@ angular.module('hl4App')
                     var dlg = dialogs.create('views/login.html','LoginCtrl',$scope.custom,{size:''});
                     break;
 
+                case 'profile':
+                    var dlg = dialogs.create('views/profile.html','ProfileCtrl',$scope.teacher_info,{size:'lg',keyboard: true,backdrop: false,windowClass: 'profile-dialog'});
+                    /*
+                    dlg.result.then(function(name){
+                        $scope.name = name;
+                    },function(){
+                        if(angular.equals($scope.name,''))
+                            $scope.name = 'You did not enter in your name!';
+                    });
+                    */
+                    break;
 
                 case 'confirm':
                     var dlg = dialogs.confirm();

@@ -18,7 +18,7 @@ angular
     'ngTouch',
     'ui.bootstrap',
     'dialogs.main',
-    'pascalprecht.translate',
+    'pascalprecht.translate'
 
   ])
   .config(function ($routeProvider) {

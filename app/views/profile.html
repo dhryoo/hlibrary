@@ -1,4 +1,4 @@
-<div class="container" ng-controller="ProfileCtrl">
+<div class="modal-dialog profile-dialog">
     <div class="row">
         <div>
             <div class="panel panel-default">
@@ -65,45 +65,49 @@
 
         </div><!--/col-->
     </div><!--/row-->
+
+
+    <div class="row">
+        <div class="col-sm-4" data-ng-repeat="book in books">
+
+            <div class="panel panel-default">
+                <div class="panel-thumbnail"><img ng-src="{{book.attachments[0].images.full.url}}" class="img-responsive"></div>
+                <div class="panel-body">
+                    <p class="lead"> {{book.title}}</p>
+                    <p>120k Followers, 900 Posts</p>
+
+                    <p style="cursor:pointer">
+                        <!--img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
+                        <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px"-->
+                        <i class="fa fa-desktop fa-3x" ng-click="open_book('{{book.custom_fields.book_url[0]}}')"></i>데스크탑 보기
+                        <i class="fa fa-mobile-phone fa-4x" ng-click="open_book('{{book.custom_fields.book_url[0]}}')" ></i>모바일 보기
+                    </p>
+                </div>
+            </div>
+
+
+        </div><!--/col-->
+
+
+        <br>
+
+        <div class="clearfix"></div>
+
+        <hr>
+        <div class="col-md-12 text-center"><p><a href="http://www.ibookie.org/" target="_ext">지금 바로 아이부키에서 자신만의 책을 만들어 보세요.</a><br><a href="http://www.ibookie.org" target="_ext">http://www.ibookie.org</a></p></div>
+        <hr>
+
+    </div><!--/main row-->
+
+    <div style="margin-top:10px;margin-bottom:10px">
+        <button class="btn btn-info btn-block" ng-click="close();"><span class="fa fa-arrow-left"></span> 목록으로</button>
+    </div>
+
+
+
+
+
 </div><!--/container-->
 
-
-
-
-<div class="row">
-    <div class="col-sm-4" ng-repeat="book in books">
-
-        <div class="panel panel-default">
-            <div class="panel-thumbnail"><img ng-src="{{book.attachments[0].images.full.url}}" class="img-responsive"></div>
-            <div class="panel-body">
-                <p class="lead"> {{book.title}}</p>
-                <p>120k Followers, 900 Posts</p>
-
-                <p style="cursor:pointer">
-                    <!--img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                    <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px"-->
-                    <i class="fa fa-desktop fa-3x" ng-click="open_book('{{book.custom_fields.book_url[0]}}')"></i>데스크탑 보기
-                    <i class="fa fa-mobile-phone fa-4x" ng-click="open_book('{{book.custom_fields.book_url[0]}}')" ></i>모바일 보기
-                </p>
-            </div>
-        </div>
-
-
-    </div><!--/col-->
-
-
-    <br>
-
-    <div class="clearfix"></div>
-
-    <hr>
-    <div class="col-md-12 text-center"><p><a href="http://www.ibookie.org/" target="_ext">지금 바로 아이부키에서 자신만의 책을 만들어 보세요.</a><br><a href="http://www.ibookie.org" target="_ext">http://www.ibookie.org</a></p></div>
-    <hr>
-
-</div><!--/main row-->
-
-<div style="margin-top:10px;margin-bottom:10px">
-    <button class="btn btn-info btn-block" onclick="history.go(-1);"><span class="fa fa-arrow-left"></span> 목록으로</button>
-</div>
 
 

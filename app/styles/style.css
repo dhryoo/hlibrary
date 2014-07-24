@@ -1,0 +1,64 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css); 
+
+* { font-family: 'NanumGothic', '나눔고딕','NanumGothicWeb', '맑은 고딕', 'Malgun Gothic', Dotum; }
+
+
+
+/*     news     */
+.news {height:30px;width:100%;background:#e0e0e0;border-top:5px solid #e3b600;}
+.news p {height:28px;back ground:green;text-align:center;padding-top:2px;overflow:hidden;}
+
+
+/*     masonry     */
+
+
+*, *:before, *:after {box-sizing:  border-box !important;}
+
+.container {
+backgr ound:red;
+width:100%;
+height:100%;
+}
+
+.row2 {
+ -moz-column-width: 20em;
+ -webkit-column-width: 20em;
+ -moz-column-gap: .5em;
+ -webkit-column-gap:1em;
+}
+
+.well {
+ position:relative;
+ display: inline-block;
+  overflow: visible;
+}
+
+.under_btn {
+width:5em;
+height:1em;
+borde r-bottom: 1px solid blue;
+backgro und:yellow;
+
+}
+
+.under_detail {
+float:right;
+backgr ound:green;
+list-style:none;
+padding-right:10px;
+}
+
+.under_detail li {
+float:left;
+text-decoration:none;
+}
+
+
+.navbar-default {
+    background-color: #464646;
+    border-color: transparent;
+}
+
+.profile-dialog .modal-dialog {
+    width :90%;
+}
