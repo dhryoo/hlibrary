@@ -60,7 +60,7 @@
 
             </div><!--/panel-->
                             <div style="margin-top:10px;margin-bottom:10px" ng-if="books.length >0">
-                <button class="btn btn-info btn-block" onclick="history.go(-1);"><span class="fa fa-arrow-left"></span> 목록으로</button>
+                <button class="btn btn-info btn-block" ng-click="close();"><span class="">&#10006;</span>닫기</button>
                 </div>
 
         </div><!--/col-->
@@ -77,8 +77,6 @@
                     <p>120k Followers, 900 Posts</p>
 
                     <p style="cursor:pointer">
-                        <!--img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                        <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px"-->
                         <i class="fa fa-desktop fa-3x" ng-click="open_book('{{book.custom_fields.book_url[0]}}')"></i>데스크탑 보기
                         <i class="fa fa-mobile-phone fa-4x" ng-click="open_book('{{book.custom_fields.book_url[0]}}')" ></i>모바일 보기
                     </p>
@@ -93,14 +91,14 @@
 
         <div class="clearfix"></div>
 
-        <hr>
-        <div class="col-md-12 text-center"><p><a href="http://www.ibookie.org/" target="_ext">지금 바로 아이부키에서 자신만의 책을 만들어 보세요.</a><br><a href="http://www.ibookie.org" target="_ext">http://www.ibookie.org</a></p></div>
+        <hr ng-if="books.length >0">
+        <div ng-if="books.length >0" class="col-md-12 text-center"><p><a href="http://www.ibookie.org/" target="_ext">지금 바로 아이부키에서 자신만의 책을 만들어 보세요.</a><br><a href="http://www.ibookie.org" target="_ext">http://www.ibookie.org</a></p></div>
         <hr>
 
     </div><!--/main row-->
 
     <div style="margin-top:10px;margin-bottom:10px">
-        <button class="btn btn-info btn-block" ng-click="close();"><span class="fa fa-arrow-left"></span> 목록으로</button>
+        <button class="btn btn-info btn-block" ng-click="cancel();"><span class="">&#10006;</span> 닫기</button>
     </div>
 
 

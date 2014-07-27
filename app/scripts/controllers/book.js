@@ -19,4 +19,6 @@ angular.module('hl4App')
         $scope.posts = result.data.posts;
         console.log($scope.posts);
     });
+
+
   }]);

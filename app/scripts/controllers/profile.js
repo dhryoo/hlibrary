@@ -8,7 +8,11 @@
  * Controller of the hl4App
  */
 angular.module('hl4App')
-  .controller('ProfileCtrl',['$scope','postData','$window','$routeParams', function ($scope,postData,$window,$routeParams) {
+  .controller('ProfileCtrl',['$scope','$modalInstance','data','postData','$window', function ($scope,$modalInstance,data,postData,$window) {
+
+
+
+
 
 
 
@@ -19,7 +23,6 @@ angular.module('hl4App')
         $scope.books = [];
         $scope.teacher = {};
         $scope.schedules = [];
-        $scope.author_id = 9;
         $scope.teacher_can_day = [];
         $scope.teacher_region = [];
 
@@ -29,16 +32,22 @@ angular.module('hl4App')
         };
         $scope.go_counsil = function () {
         };
-        $scope.close = function () {
-           // $modalInstance.close();
 
-        }
+        $scope.close = function () {
+            $modalInstance.close();
+        };
+
+        $scope.cancel = function () {
+            $modalInstance.close();
+        };
 
 
         var init = function () {
 
-            $scope.author_name = $routeParams.author_name;
-            $scope.post_id = $routeParams.post_id;
+            console.log(data);
+
+            $scope.author_name = data.teacher_id;
+            $scope.post_id = data.teacher_post_id;
 
 
             postData.getTeacherInfo($scope.post_id).then(function (result) {

@@ -17,10 +17,34 @@ angular
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap',
+    'ui.router',
+    'ui.bootstrap.modal',
     'dialogs.main',
     'pascalprecht.translate'
 
   ])
+    .config(['$stateProvider','$urlRouterProvider', function ($stateProvider,$urlRouterProvider) {
+        $urlRouterProvider.otherwise("/");
+
+
+        var main = {
+            name:'main',
+            url: '/',
+            templateUrl:'views/main.html',
+            controller:'MainCtrl'
+        };
+
+        var book = {
+            name:'book',
+            url: '/book',
+            templateUrl:'views/book.html',
+            controller:'BookCtrl'
+         };
+
+        $stateProvider.state(main);
+        $stateProvider.state(book);
+    }])
+    /*
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -43,6 +67,7 @@ angular
         redirectTo: '/'
       });
   })
+  */
     .config(['dialogsProvider','$translateProvider',function(dialogsProvider,$translateProvider){
         dialogsProvider.useBackdrop('static');
         dialogsProvider.useEscClose(false);
@@ -68,23 +93,6 @@ angular
 
         $translateProvider.preferredLanguage('en-US');
     }])
-
-    /*
-    .config(function (ezfbProvider) {
-        ezfbProvider.setLocale('ko_KR');
-    })
-    .config(function (ezfbProvider) {
-        ezfbProvider.setInitParams({
-            // This is my FB app id for plunker demo app
-            appId: '512046832258790',
-
-            // Module default is `v1.0`.
-            // If you want to use Facebook platform `v2.0`, you'll have to add the following parameter.
-            // https://developers.facebook.com/docs/javascript/reference/FB.init/v2.0
-            version: 'v2.0'
-        });
-    });
-    */
    .constant('AUTH_EVENTS',{
        loginSuccess:'auth-login-success',
        loginFailed:'auth-login-failed',
@@ -102,6 +110,7 @@ angular
     .run(function ($rootScope, AUTH_EVENTS, AuthService) {
         $rootScope.$on('$stateChangeStart', function (event, next) {
             console.log('state chage start');
+            /*
             var authorizedRoles = next.data.authorizedRoles;
             if (!AuthService.isAuthorized(authorizedRoles)) {
                 event.preventDefault();
@@ -113,16 +122,23 @@ angular
                     $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
                 }
             }
+            */
         });
+        /*
         $rootScope.$on(AUTH_EVENTS.loginSuccess, function (event,menu) {
             console.log('in event success');
             $rootScope.$broadcast(AUTH_EVENTS.Authorization);
+        });
+        $rootScope.$on(AUTH_EVENTS.logoutSuccess, function (event,menu) {
+            console.log('log out success');
+            $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
         });
 
         $rootScope.$on(AUTH_EVENTS.loginFailed, function (event,menu) {
             console.log('in event fail');
             $rootScope.$broadcast(AUTH_EVENTS.notAuthenticated);
         });
+        */
     })
     .config(function ($httpProvider) {
         $httpProvider.interceptors.push([

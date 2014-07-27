@@ -27,8 +27,7 @@
     "tag": "v5.0.0",
     "commit": "7f91086d3efd82d2e87dfcd6c0e11339f0271b73"
   },
-  "_source": "https://github.com/m-e-conroy/angular-dialog-service.git",
+  "_source": "git://github.com/m-e-conroy/angular-dialog-service.git",
   "_target": "~5.0.0",
-  "_originalSource": "https://github.com/m-e-conroy/angular-dialog-service.git",
-  "_direct": true
+  "_originalSource": "angular-dialog-service"
 }

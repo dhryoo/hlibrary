@@ -10,6 +10,7 @@
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/angular-dialog-service/dialogs.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -36,13 +37,15 @@
     <![endif]-->
 
 
-    <div class="news"><p>휴먼 라이브러리 사이트 개발중입니다. 2014-07-22</p></div>
+    <div class="news" data-ng-controller="NoticeCtrl">
+        <p ng-click="openNotice({{notice.id}})">{{notice.title}}</p>
+    </div>
 
 
     <div class="navbar navbar-default" id="subnav" ng-include="'/views/main_menu.html'"></div>
 
     <!--main-->
-    <div class="container" id="main" ng-view=""></div>
+    <div class="container" id="main" data-ui-view=""></div>
     <!--/main-->
 
 
@@ -70,9 +73,7 @@
 
 
 
-    <div ng-controller="ProfileCtrl"></div>
 
-    <!--div login-dialog ng-if="!isLoginPage"></div-->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 
@@ -95,6 +96,8 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.js"></script>
+    <script src="bower_components/angular-dialog-service/dialogs.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -102,7 +105,6 @@
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
         <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/services/postservice.js"></script>
         <script src="scripts/services/postdata.js"></script>
         <script src="scripts/controllers/book.js"></script>
         <script src="scripts/controllers/menu.js"></script>
@@ -112,8 +114,8 @@
         <script src="scripts/controllers/application.js"></script>
         <script src="scripts/directives/logindialog.js"></script>
         <script src="scripts/controllers/profile.js"></script>
-        <script src="scripts/services/modal-service.js"></script>
-        <script src="scripts/services/profile-service.js"></script>
+        <script src="scripts/controllers/notice.js"></script>
+        <script src="scripts/controllers/noticeinfo.js"></script>
         <!-- endbuild -->
 </body>
 </html>

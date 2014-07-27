@@ -74,6 +74,39 @@ angular.module('hl4App')
 
 
 
+
+     dataAPI.getNotice = function () {
+        var param = 'json=get_category_posts&category_id=11&count=1';
+        var newURL = baseURL + param;
+         console.log(newURL);
+        var deferred = $q.defer();
+        deferred.resolve(
+            $http.jsonp(newURL).success(function (result) {
+                console.log(result);
+                return result.post;
+            }));
+        return deferred.promise;
+
+    };
+
+     /*
+        하나의  사항을 가져오는 함수
+      */
+     dataAPI.getPostInfo = function (post_id) {
+        var param = 'json=get_post&post_id='+post_id;
+        var newURL = baseURL + param;
+         console.log(newURL);
+        var deferred = $q.defer();
+        deferred.resolve(
+            $http.jsonp(newURL).success(function (result) {
+                console.log(result);
+                return result.post;
+            }));
+        return deferred.promise;
+    };
+
+
+
       dataAPI.getTest = function () {
         var newURL = 'http://www.ibookie.org/index.php?document_srl=5106&module=zoard&act=dispZoardContentFileList&mid=ilibrary';
         var deferred = $q.defer();
