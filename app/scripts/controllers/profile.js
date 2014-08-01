@@ -54,13 +54,13 @@ angular.module('hl4App')
                 $scope.teacher = result.data.post;
 
                 console.log(result.data.post);
-                var can_day_temp = result.data.post.custom_fields.teacher_can_day[0];
-                var region_temp = result.data.post.custom_fields.teacher_region[0];
+//                var can_day_temp = result.data.post.custom_fields.teacher_can_day[0];
+ //               var region_temp = result.data.post.custom_fields.teacher_region[0];
                 //var can_day = can_day_temp..replace(/[^"]+;[^"]+/g, '').replace(/^"*|"*$/g, '').split('""');
-                var can_day = can_day_temp.replace(/[^"]+:|;[^"]+/g, '').replace(/^"*|"*$/g, '').split('""');
-                var region = region_temp.replace(/[^"]+:|;[^"]+/g, '').replace(/^"*|"*$/g, '').split('""');
-                $scope.can_day = can_day;
-                $scope.teacher_region =region ;
+              //  var can_day = can_day_temp.replace(/[^"]+:|;[^"]+/g, '').replace(/^"*|"*$/g, '').split('""');
+               // var region = region_temp.replace(/[^"]+:|;[^"]+/g, '').replace(/^"*|"*$/g, '').split('""');
+                $scope.can_day = result.data.post.custom_fields.teacher_can_day;;
+                $scope.teacher_region =result.data.post.custom_fields.teacher_region;
 
 
                // $scope.teacher_can_day = JSON.parse(result.data.post.custom_fields.teacher_can_day);

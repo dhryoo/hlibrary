@@ -1,0 +1,12 @@
+<h1>검색 결과 페이지</h1>
+<p>검색어:{{ keyword.one }}</p>
+<div>
+    <accordion close-others="oneAtATime">
+
+        <accordion-group  heading="{{ post.title }}" data-ng-repeat="post in posts">
+            <div data-ng-bind-html="post.content">
+            </div>
+        </accordion-group>
+
+    </accordion>
+</div>

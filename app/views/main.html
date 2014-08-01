@@ -3,10 +3,13 @@
         <div class="well post">
             <h2 class="text-center">{{teacher.title|limitTo:10}}</h2>
             <h4 class="text-center">{{teacher.custom_fields.teacher_name[0]}}</h4>
-            <a href=""><img class="thumbnail img-responsive" ng-src="{{teacher.attachments[0].images.full.url}}"></a>
+            <a ng-click="showProfile('{{teacher.custom_fields.teacher_id[0]}}','{{teacher.id}}')"><img class="thumbnail img-responsive" ng-src="{{teacher.attachments[0].images.full.url}}"></a>
             <div class="info"> <p>{{teacher.custom_fields.teacher_introduce[0]|limitTo:200}}</p>
                 <ul class="under_detail">
                     <li class="under_btn" ng-click="showProfile('{{teacher.custom_fields.teacher_id[0]}}','{{teacher.id}}');">상세보기</li>
+                    <li data-ng-repeat="region in teacher.custom_fields.teacher_region">
+                       {{ region }}&nbsp;
+                    </li>
                 </ul>
             </div>
         </div>

@@ -36,6 +36,16 @@
                                 <span class="label label-info tags">{{can_day[4]}}</span>
                                 <span class="label label-info tags">{{can_day[5]}}</span>
                            </p>
+
+                            <p><strong>최근 schedule: </strong>
+                                <span class="label label-info" data-ng-repeat="schedule in schedules">
+                                    {{ schedule.title }}
+
+                                </span>
+                            </p>
+
+
+
                         </div><!--/col-->
                         <div class="clearfix"></div>
                         <div class="col-xs-12 col-sm-4">

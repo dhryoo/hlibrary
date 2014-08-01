@@ -40,9 +40,52 @@ angular
             templateUrl:'views/book.html',
             controller:'BookCtrl'
          };
+        var faq = {
+            name:'faq',
+            url: '/faq',
+            templateUrl:'views/faq.html',
+            controller:'FaqCtrl'
+         };
+
+        /*
+        var qna = {
+            name:'qna',
+            url: '/qna',
+            templateUrl:'views/qna.html',
+            controller:'QnaCtrl'
+         };
+         */
+
+
+        var map = {
+            name:'map',
+            url: '/map',
+            templateUrl:'views/map.html',
+            controller:'MapCtrl'
+         };
+        var search = {
+            name:'search',
+            url: '/search',
+            templateUrl:'views/search.html',
+            controller:'SearchCtrl'
+         };
+        var register = {
+            name:'register',
+            url: '/register',
+            templateUrl:'views/register.html',
+            controller:'RegisterCtrl'
+         };
+
+
+
 
         $stateProvider.state(main);
         $stateProvider.state(book);
+        $stateProvider.state(faq);
+        //$stateProvider.state(qna);
+        $stateProvider.state(map);
+        $stateProvider.state(search);
+        $stateProvider.state(register);
     }])
     /*
   .config(function ($routeProvider) {
@@ -96,7 +139,7 @@ angular
    .constant('AUTH_EVENTS',{
        loginSuccess:'auth-login-success',
        loginFailed:'auth-login-failed',
-       logoutSuccess:'auth-login-success',
+       logoutSuccess:'auth-logout-success',
        sessionTimeout:'auth-session-timeout',
        notAuthenticated:'auth-not-authenticated',
        notAuthorized:'auth-not-authorized'
@@ -107,8 +150,14 @@ angular
        editor: 'editor',
        guest: 'guest'
    })
-    .run(function ($rootScope, AUTH_EVENTS, AuthService) {
-        $rootScope.$on('$stateChangeStart', function (event, next) {
+    .run(function ($rootScope,$templateCache, AUTH_EVENTS, AuthService) {
+        $rootScope.$on('$stateChangeStart', function (event, next,current) {
+            /**
+             * cache 삭제 루틴 나중에 이부분을 지워서 속도를 빠르게 해야 한다.
+             */
+            if (typeof(current) !== 'undefined'){
+                $templateCache.remove(current.templateUrl);
+            }
             console.log('state chage start');
             /*
             var authorizedRoles = next.data.authorizedRoles;

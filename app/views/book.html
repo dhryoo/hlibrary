@@ -1,17 +1,11 @@
 <div class="row">
-    <div class="col-sm-4" ng-repeat="book in posts">
+    <div class="col-sm-2" ng-repeat="book in posts">
 
         <div class="panel panel-default">
             <div class="panel-thumbnail"><img ng-src="{{book.attachments[0].images.full.url}}" class="img-responsive"></div>
             <div class="panel-body">
                 <p class="lead"> {{book.title}}</p>
-                <p>120k Followers, 900 Posts</p>
-
-                <p>
-                    <img src="https://lh4.googleusercontent.com/-6aFMDiaLg5M/AAAAAAAAAAI/AAAAAAAABdM/XjnG8z60Ug0/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                    <img src="https://lh4.googleusercontent.com/-9Yw2jNffJlE/AAAAAAAAAAI/AAAAAAAAAAA/u3WcFXvK-g8/s28-c-k-no/photo.jpg" width="28px" height="28px">
-                    <button type="button" class="btn btn-primary"  ng-click="open_book('{{book.custom_fields.book_url[0]}}')"> 책 보기</button>
-                </p>
+                <p><button type="button" class="btn btn-primary"  ng-click="open_book('{{book.custom_fields.book_url[0]}}')"> 책 보기</button></p>
             </div>
         </div>
 

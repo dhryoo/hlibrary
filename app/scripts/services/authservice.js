@@ -94,5 +94,12 @@ angular.module('hl4App')
             $rootScope.$broadcast(AUTH_EVENTS.logoutSuccess);
         };
 
+
+
+        authService.sendRegisterMessage = function () {
+            console.log('in send regist message');
+            $rootScope.$broadcast("go_regist");
+        }
+
         return authService;
   }]);
